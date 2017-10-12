@@ -9,6 +9,10 @@ export class ServersComponent implements OnInit {
   allowAddOfServer = false;
   serverCreationMessage = 'No server was created';
   serverName = 'Text from typescript';
+  isServerCreated = false;
+
+  //servers list
+  serversList = ['Server 1', 'Server 2'];
 
   //constructor is runned on component creation
   constructor() {
@@ -19,7 +23,10 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateClick(){
+    this.isServerCreated = true;
     this.serverCreationMessage = "Server created with name " + this.serverName;
+
+    this.serversList.push(this.serverName);
   }
 
   // onServerNameInput(event: Event){

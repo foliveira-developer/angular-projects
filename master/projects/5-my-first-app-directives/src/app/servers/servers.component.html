@@ -3,6 +3,6 @@
 <input type="text" class="form-control" [(ngModel)]="serverName"/>
 <!-- <p>{{serverName}}</p> -->
 <button class="btn btn-primary" [disabled]=!allowAddOfServer (click) = "onCreateClick($event)">Add new server</button>
-<p>{{serverCreationMessage}}</p>
-<app-server></app-server>
-<app-server></app-server>
+<p *ngIf = "isServerCreated">{{serverCreationMessage}}</p>
+<!-- * is used because it is a structural directive which changes the DOM -->
+<app-server *ngFor="let server of serversList"></app-server>
